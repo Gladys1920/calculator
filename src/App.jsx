@@ -7,11 +7,17 @@ function App() {
 //valores que si van a variar
 //usestate va validar el variable del estado
    const [screen, setScreen] = useState('0');
-   const handelButtonClick = () => {
+
+   const handelButtonClick = (e) => {
+    const value = e.target.value;
+    if (value === 'c'){
+      setScreen('0');
+      return;
+    }
     if (screen === '0') {
-      setScreen('9');
-    } else{
-      setScreen(`${screen}9`);
+      setScreen(value);
+    } else{   
+      setScreen(`${screen}${value}`);
     }
    }
   return (
@@ -44,34 +50,52 @@ function App() {
 
     <tr>
     <td><button type='button'
-      className={buttonsClasses}> 7 </button></td>
+      className={buttonsClasses}
+      value='7'
+      onClick={(e)=>handelButtonClick(e)}> 7 </button></td>
       <td><button type='button'
-      className={buttonsClasses}> 8 </button></td>
+      className={buttonsClasses}
+      value='8'
+      onClick={(e)=>handelButtonClick(e)}> 8 </button></td>
       <td><button type='button'
-      onClick={handelButtonClick}
-      className={buttonsClasses}> 9 </button></td>
+      className={buttonsClasses}
+      value='9'
+      onClick={(e)=>handelButtonClick(e)}> 9 </button></td>
       <td rowSpan={2}><button type='button'
-      className={buttonsClasses} style={{height:"85px"}}> + </button></td>
+      className={buttonsClasses} onClick={()=>handelButtonClick} style={{height:"85px"}}> + </button></td>
       
   
+
     </tr>
 
     <tr>
       <td><button type='button'
-      className={buttonsClasses}> 4 </button></td>
+      className={buttonsClasses}
+      value='4'
+      onClick={(e)=>handelButtonClick(e)}> 4 </button></td>
       <td><button type='button'
-      className={buttonsClasses}> 5 </button></td>
+      className={buttonsClasses}
+      value='5'
+      onClick={(e)=>handelButtonClick(e)}> 5 </button></td>
       <td><button type='button'
-      className={buttonsClasses}> 6 </button></td>
+      className={buttonsClasses}
+      value='6'
+      onClick={(e)=>handelButtonClick(e)}> 6 </button></td>
     </tr>
 
     <tr>
     <td><button type='button'
-      className={buttonsClasses}> 1 </button></td>
+      className={buttonsClasses}
+      value='1'
+      onClick={(e)=>handelButtonClick(e)}> 1 </button></td>
       <td><button type='button'
-      className={buttonsClasses}> 2 </button></td>
+      className={buttonsClasses}
+      value='2'
+      onClick={(e)=>handelButtonClick(e)}> 2 </button></td>
       <td><button type='button'
-      className={buttonsClasses}> 3 </button></td>
+      className={buttonsClasses}
+      value='3'
+      onClick={(e)=>handelButtonClick(e)}> 3 </button></td>
       <td rowSpan={2}><button type='button'
       className={buttonsClasses} style={{height:"85px"}}> = </button></td>
     </tr>
