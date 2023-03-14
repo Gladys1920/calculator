@@ -1,6 +1,19 @@
+import { useState } from 'react';
 import './App.css'
 
+const buttonsClasses = 'btn btn-primary w-75 mt-2';
+//valores que nunca van a varias
 function App() {
+//valores que si van a variar
+//usestate va validar el variable del estado
+   const [screen, setScreen] = useState('0');
+   const handelButtonClick = () => {
+    if (screen === '0') {
+      setScreen('9');
+    } else{
+      setScreen(`${screen}9`);
+    }
+   }
   return (
      <div className='app'>
     <h1>Calculator</h1>
@@ -14,68 +27,69 @@ function App() {
       border: '1px solid black',
       texAlign: 'end'
     }}>
-     <h2>0</h2>
+     <h2>{screen}</h2>
     </td>
     </tr>
 
     <tr>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> C </button></td>
+      className={buttonsClasses}> C </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> / </button></td>
+      className= {buttonsClasses}> / </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> * </button></td>
+      className={buttonsClasses}> * </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> - </button></td>
+      className={buttonsClasses}> - </button></td>
     </tr>
 
     <tr>
     <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 7 </button></td>
+      className={buttonsClasses}> 7 </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 8 </button></td>
+      className={buttonsClasses}> 8 </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 9 </button></td>
+      onClick={handelButtonClick}
+      className={buttonsClasses}> 9 </button></td>
       <td rowSpan={2}><button type='button'
-      className='btn btn-primary w-75 mt-2'style={{height:"85px"}}> + </button></td>
+      className={buttonsClasses} style={{height:"85px"}}> + </button></td>
       
   
     </tr>
 
     <tr>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 4 </button></td>
+      className={buttonsClasses}> 4 </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 5 </button></td>
+      className={buttonsClasses}> 5 </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 6 </button></td>
+      className={buttonsClasses}> 6 </button></td>
     </tr>
 
     <tr>
     <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 1 </button></td>
+      className={buttonsClasses}> 1 </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 2 </button></td>
+      className={buttonsClasses}> 2 </button></td>
       <td><button type='button'
-      className='btn btn-primary w-75 mt-2'> 3 </button></td>
+      className={buttonsClasses}> 3 </button></td>
       <td rowSpan={2}><button type='button'
-      className='btn btn-primary w-75 mt-2' style={{height:"85px"}}> = </button></td>
+      className={buttonsClasses} style={{height:"85px"}}> = </button></td>
     </tr>
       <tr>
     
     <td>
       <button 
          type='button'
-         className='btn btn-primary mt-2 w-75'
+         className={buttonsClasses}
          > DEL </button>
     </td>
     
     <td ><button type='button'
-      className=  'btn btn-primary  w-75 mt-2'
+      className=  {buttonsClasses}
       > 0 </button></td>
     <td>
     <button type='button'
-    className='btn btn-primary w-75 mt-2'> . </button>
+    className={buttonsClasses}> . </button>
     </td>
     </tr>
 
